@@ -9,12 +9,6 @@ import {getUserList} from '../../redux/chatuser.redux'
 )
 
 class Boss extends React.Component{
-    constructor(props){
-        super(props);
-        this.state={
-            data:[]
-        }
-    }
     componentDidMount(){
         this.props.getUserList('genius')
     }

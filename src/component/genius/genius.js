@@ -1,7 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Card, WhiteSpace, WingBlank} from 'antd-mobile'
+
 import {getUserList} from '../../redux/chatuser.redux'
+import UserCard from '../usercard/usercard'
 
 @connect(
     state=>state.chatuser,
@@ -14,10 +15,9 @@ class Genius extends React.Component{
     }
     render(){
         
-        const Header = Card.Header
-        const Body = Card.Body
+        
         return (
-            <h2>牛人首页，查看boss列表</h2>
+            <UserCard userlist={this.props.userlist}></UserCard>
         )
     }
 }

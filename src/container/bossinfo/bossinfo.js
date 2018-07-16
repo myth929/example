@@ -34,7 +34,7 @@ class BossInfo extends React.Component{
         return (
             <div>
                 {redire&&redire!==path? <Redirect to={this.props.redirectTo} />:null}
-                <NavBar mode = "dark">BOSS完善信息页面</NavBar>
+                <NavBar mode = "dark">俱乐部信息完善页面</NavBar>
                 <AvatarSelector
                     selectAvatar={(imgname)=>{
                         this.setState({
@@ -43,19 +43,19 @@ class BossInfo extends React.Component{
                     }}
                 ></AvatarSelector>
                 <InputItem onChange={v=>this.onChange('title',v)}>
-                    招聘职位
+                    位置需求
                 </InputItem>
                 <InputItem onChange={v=>this.onChange('company',v)}>
-                    公司名称
+                    俱乐部名称
                 </InputItem>
                 <InputItem onChange={v=>this.onChange('money',v)}>
-                    职位薪资
+                    薪资
                 </InputItem>
                 <TextareaItem 
                     onChange={v=>this.onChange('desc',v)}
                     rows = {3}
                     autoHeight
-                    title = '职位要求'
+                    title = '其他要求'
                 >
                 </TextareaItem>
                 <Button 

@@ -33,7 +33,7 @@ class GeniusInfo extends React.Component{
             <div>
                 
                 {redire&&redire!==path?<Redirect to={this.props.redirectTo}></Redirect>:null}
-                <NavBar mode = "dark">牛人完善信息页面</NavBar>
+                <NavBar mode = "dark">球星信息完善页面</NavBar>
                 <AvatarSelector
                     selectAvatar={(imgname)=>{
                         this.setState({
@@ -42,7 +42,7 @@ class GeniusInfo extends React.Component{
                     }}
                 ></AvatarSelector>
                 <InputItem onChange={v=>this.onChange('title',v)}>
-                    求职岗位
+                    擅长位置
                 </InputItem>
                 <TextareaItem 
                     onChange={v=>this.onChange('desc',v)}

@@ -7,7 +7,7 @@ const User = model.getModel('user')
 const Chat = model.getModel('chat')
 const _filter = {'pwd':0,'__v':0}
 
-Chat.remove({},function (e,d) {})             //清空聊天信息
+// Chat.remove({},function (e,d) {})             //清空聊天信息
 
 Router.get('/list',function (req,res) {
     const {type} = req.query
@@ -31,6 +31,22 @@ Router.get('/getmsgList',function (req,res) {
         })
     })
 })
+
+Router.post('/readmsg',function (req,res) {
+    const userid = req.cookies.userid
+    const {from} = req.body
+    Chat.update(
+        {from,to:userid},
+        {'$set':{read:true}},
+        {'multi':true},
+        function (err,doc) {
+        if (!err) {
+            return res.json({code:0,num:doc.nModified})
+        }
+        return res.json({code:1,msg:'修改失败'})
+    })
+})
+
 Router.post('/update',function (req,res) {
     const userid = req.cookies.userid
     if(!userid){
@@ -43,7 +59,6 @@ Router.post('/update',function (req,res) {
             user:doc.user,
             type:doc.type
         },body)
-        console.log(res)
         return res.json({code:0,data})
     })
 })
